@@ -1,0 +1,13 @@
+site internet qui permet la documentation sur les drogue / medicament.
+principes de base :
+serveur interne qui lie des fichier json de données au serveur html.
+les données json seront donc modifiable dans le temps.
+chaque drogue est nommé dans le name.json, elle est aussi associé a un id unique et a sa famille de drogue (1, puis 2 , puis 3 etc)
+chaque drogue sera referencier dans les json suivant via sont id.
+chaque drogue aura une list d'effet indesirable (indesirable.json), sur les melange a eviter (badmelange.json), sur les doses (dos.json), sur les effet et leurs durée (effet), melange benefique (goodmelange.json), leurs couts (prix.txt),
+
+l'utilisateur pourra :
+
+chercher une drogue via sont nom, les filtres en fonction des effet desiré, des effet secondaire a eviter etc.
+en fonction de la drogue choisi, une liste de melange a eviter et de melange benefique sera proposer.
+des info sur les doses a prendre sera aussi proposer

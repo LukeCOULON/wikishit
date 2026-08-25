@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">DOC<span>DATA</span></div>
+  <nav>
+    <button class="nav-btn active" data-view="search">Rechercher</button>
+    <button class="nav-btn" data-view="filter">Filtrer</button>
+    <button class="nav-btn reset" id="resetBtn">Réinitialiser les filtres</button>
+  </nav>
+</header>
+
+<main>
+  <section id="searchView" class="view">
+    <div class="hero">
+      <p class="eyebrow">BASE DOCUMENTAIRE</p>
+      <h1>Rechercher une entrée</h1>
+      <p>Recherchez par nom, effet, famille, prix ou niveau d'addiction.</p>
+      <div class="search-row">
+        <input id="searchInput" type="search" placeholder="Ex. nom, effet, famille..." autocomplete="off">
+        <button id="searchBtn">Rechercher</button>
+      </div>
+    </div>
+    <div id="results" class="results"></div>
+  </section>
+
+  <section id="filterView" class="view hidden">
+    <div class="page-head">
+      <p class="eyebrow">LECTURE DE LA BASE</p>
+      <h1>Filtrer les entrées</h1>
+      <p>Chaque entrée correspondant aux critères sera affichée.</p>
+    </div>
+    <div class="filters">
+      <div><label>Famille</label><div id="familyFilter" class="check-list"></div></div>
+      <div><label>Effet recherché</label><div id="effectFilter" class="check-list"></div></div>
+      <div><label>Effet indésirable à éviter</label><div id="badEffectFilter" class="check-list"></div></div>
+      <div><label>Prix (€)</label><div id="priceFilter" class="check-list"></div></div>
+      <div class="addiction-filter">
+        <label>Niveau d'addiction <span id="addictionRangeLabel">0 à 10</span></label>
+        <div class="range-row">
+          <input id="addictionMin" type="range" min="0" max="10" value="0" step="1" aria-label="Niveau d'addiction minimum">
+          <input id="addictionMax" type="range" min="0" max="10" value="10" step="1" aria-label="Niveau d'addiction maximum">
+        </div>
+        <div class="range-values"><span>0 — faible</span><span>10 — élevé</span></div>
+      </div>
+    </div>
+    <div id="filterResults" class="results"></div>
+  </section>
+</main>
+
+<footer>Interface documentaire — données locales JSON</footer>
+<script src="/app.js"></script>
+</body>
+</html>

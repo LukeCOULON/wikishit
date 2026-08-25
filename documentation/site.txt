@@ -1,0 +1,13 @@
+le site aura un menu simple en haut avec :
+rechercher
+filtrer
+reinitialiser les filtres
+
+sur le bouton recherche :
+une page ou l'user mets simplement le nom, un effet, un prix etc donne une drogue et ses infos.
+
+sur le bouton filtre :
+il s'agit d'une lecture de base de données, chaque drogue qui remplie les requirements sera affiché.
+
+sur le bouton reinitialiser :
+il remet le site a l'origine, en effaçants les filtre ou la recherche.

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administration — Documentation</title>
+<link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+<header>
+  <div>
+    <span class="eyebrow">LOCAL ONLY</span>
+    <h1>Administration de la base</h1>
+    <p>Ajoutez et modifiez les entrées. Les données sont enregistrées directement dans les JSON du site.</p>
+  </div>
+  <div class="status">127.0.0.1:3001</div>
+</header>
+
+<main>
+  <section class="toolbar">
+    <button id="newBtn">+ Nouvelle entrée</button>
+    <input id="searchAdmin" type="search" placeholder="Rechercher une entrée...">
+    <button id="refreshBtn" class="secondary">Actualiser</button>
+  </section>
+
+  <div id="message"></div>
+  <section id="list" class="list"></section>
+
+  <section id="editor" class="editor hidden">
+    <div class="editor-head">
+      <div>
+        <span class="eyebrow" id="modeLabel">NOUVELLE ENTRÉE</span>
+        <h2 id="editorTitle">Ajouter une entrée</h2>
+      </div>
+      <button id="closeBtn" class="secondary">Fermer</button>
+    </div>
+
+    <form id="drugForm">
+      <div class="form-grid">
+        <label>ID
+          <input id="id" type="number" min="1" placeholder="Automatique">
+          <small>Laissez vide pour utiliser le prochain ID disponible.</small>
+        </label>
+        <label>Nom *
+          <input id="name" required>
+        </label>
+        <label>Famille *
+          <div class="family-control">
+            <select id="family"></select>
+            <button type="button" id="newFamilyBtn" class="secondary small">+ Nouvelle famille</button>
+          </div>
+        </label>
+        <label>Prix
+          <input id="price" placeholder="Valeur telle qu'elle doit apparaître dans la base">
+        </label>
+      </div>
+
+      <label>Description
+        <textarea id="description" rows="3"></textarea>
+      </label>
+
+      <div class="two">
+        <fieldset>
+          <legend>Effets</legend>
+          <div id="effects" class="dynamic"></div>
+          <button type="button" class="secondary small" data-add="effects">+ Ajouter un effet</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>Effets indésirables</legend>
+          <div id="undesirables" class="dynamic"></div>
+          <button type="button" class="secondary small" data-add="undesirables">+ Ajouter</button>
+        </fieldset>
+      </div>
+
+      <fieldset>
+        <legend>Durée des effets</legend>
+        <textarea id="duration" rows="2" placeholder="Texte provenant de ta base documentaire"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Informations de dosage</legend>
+        <div id="doses" class="dynamic"></div>
+        <button type="button" class="secondary small" data-add="doses">+ Ajouter une ligne</button>
+        <small>Ce formulaire ne génère aucune recommandation : il enregistre uniquement les données que tu fournis.</small>
+      </fieldset>
+
+      <div class="two">
+        <fieldset>
+          <legend>Produits à ne pas mélanger</legend>
+          <p class="hint">Sélectionne les IDs déjà présents dans la base. Le site affichera ensuite leurs noms automatiquement.</p>
+          <div id="badIds" class="id-list"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Produits compatibles</legend>
+          <p class="hint">Sélectionne les IDs déjà présents dans la base. Le site affichera ensuite leurs noms automatiquement.</p>
+          <div id="goodIds" class="id-list"></div>
+        </fieldset>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="saveBtn">Enregistrer tous les JSON</button>
+        <button type="button" id="deleteBtn" class="danger hidden">Supprimer cette entrée</button>
+      </div>
+    </form>
+  </section>
+</main>
+<script src="/admin.js"></script>
+</body>
+</html>
