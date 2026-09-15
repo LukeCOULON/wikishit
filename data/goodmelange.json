@@ -1,9 +1,7 @@
 [
   {
     "id": 1,
-    "melanges_ids": [
-      4
-    ]
+    "melanges_ids": []
   },
   {
     "id": 2,
@@ -13,6 +11,36 @@
     "id": 3,
     "melanges_ids": [
       1
+    ]
+  },
+  {
+    "id": 4,
+    "melanges_ids": []
+  },
+  {
+    "id": 5,
+    "melanges_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "id": 6,
+    "melanges_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 7,
+    "melanges_ids": [
+      5,
+      6
     ]
   }
 ]

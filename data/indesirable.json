@@ -8,7 +8,11 @@
   {
     "id": 2,
     "indesirables": [
-      "perte de memoire"
+      "perte de memoire",
+      "ataxie",
+      "hoquet",
+      "perte de notion de temps",
+      "perte de motricité"
     ]
   },
   {
@@ -17,6 +21,37 @@
       "levres/gencives pateuses/anesthésiées",
       "parano",
       "augmentation pression artérielle"
+    ]
+  },
+  {
+    "id": 4,
+    "indesirables": [
+      "mal de tête au réveil",
+      "addiction sévère",
+      "vomissement",
+      "destruction du foie"
+    ]
+  },
+  {
+    "id": 5,
+    "indesirables": [
+      "gout",
+      "difficulté a dormir"
+    ]
+  },
+  {
+    "id": 6,
+    "indesirables": [
+      "dent jaune",
+      "odeur"
+    ]
+  },
+  {
+    "id": 7,
+    "indesirables": [
+      "augmentation pression artérielle",
+      "parano",
+      "levres/gencives pateuses/anesthésiées"
     ]
   }
 ]

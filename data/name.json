@@ -1,20 +1,44 @@
 [
   {
     "id": 1,
-    "name": "lsd",
+    "name": "Lsd",
     "famille": 1,
     "description": "c'est un hallucinogene tres puissant se retrouve sous la forme de petit carton qu'on place sur la langue en attendant les effet"
   },
   {
     "id": 2,
-    "name": "xanax",
+    "name": "Xanax (Alprazolam)",
     "famille": 3,
-    "description": ""
+    "description": "médicament prescrit contre l'anxiété mais détourner pour son coté \"brouillard mental\""
   },
   {
     "id": 3,
-    "name": "cocaine",
+    "name": "Cocaine",
     "famille": 4,
     "description": "poudre blanche a sniffer"
+  },
+  {
+    "id": 4,
+    "name": "Alcool",
+    "famille": 5,
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "caféine",
+    "famille": 4,
+    "description": "sous la forme de café ou de boisson énergisante"
+  },
+  {
+    "id": 6,
+    "name": "cannabis",
+    "famille": 5,
+    "description": "plante qui peut se \"prendre\" sous la forme de feuille a fumer de résine de sirop ou encore de bonbon"
+  },
+  {
+    "id": 7,
+    "name": "3MMC",
+    "famille": 6,
+    "description": "\"cocaïne du pauvre\""
   }
 ]

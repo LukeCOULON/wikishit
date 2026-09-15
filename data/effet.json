@@ -4,16 +4,19 @@
     "effets": [
       "hallucination tres puissantes",
       "sens qui se melangent",
-      "vision tres colorées"
+      "vision tres colorées",
+      "pupilles dilatées"
     ],
     "duree": "16h"
   },
   {
     "id": 2,
     "effets": [
-      "calmant"
+      "calmant",
+      "sedation",
+      "relaxation musculaire"
     ],
-    "duree": ""
+    "duree": "2-3h"
   },
   {
     "id": 3,
@@ -26,5 +29,44 @@
       "pupilles dilatées"
     ],
     "duree": "45 minute / 1h"
+  },
+  {
+    "id": 4,
+    "effets": [
+      "bien être",
+      "détente",
+      "sociabilité",
+      "facilité de rire",
+      "peur reduite"
+    ],
+    "duree": "3h"
+  },
+  {
+    "id": 5,
+    "effets": [
+      "energie",
+      "concentration accrue"
+    ],
+    "duree": ""
+  },
+  {
+    "id": 6,
+    "effets": [
+      "detente",
+      "somnolence"
+    ],
+    "duree": "1h"
+  },
+  {
+    "id": 7,
+    "effets": [
+      "energie accrue",
+      "vigilance accrue",
+      "reduction de l'anxiété",
+      "euphorie",
+      "confiance en soi",
+      "pupilles dilatées"
+    ],
+    "duree": ""
   }
 ]

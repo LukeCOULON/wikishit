@@ -14,5 +14,13 @@
   {
     "id": 4,
     "name": "stimulant"
+  },
+  {
+    "id": 5,
+    "name": "depresseur SNC"
+  },
+  {
+    "id": 6,
+    "name": "cathinone"
   }
 ]

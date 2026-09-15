@@ -10,7 +10,9 @@
   {
     "id": 2,
     "doses": [
-      "0.25mg leger"
+      "0.25-0.5mg leger",
+      "0.5-1.5 moyen",
+      "1.5-2 et plus , fort"
     ]
   },
   {
@@ -20,5 +22,29 @@
       "30-60mg moyen",
       "60-90 et plus , fort"
     ]
+  },
+  {
+    "id": 4,
+    "doses": []
+  },
+  {
+    "id": 5,
+    "doses": [
+      "20-50mg leger",
+      "50-150mg moyen",
+      "150-500 et plus, fort"
+    ]
+  },
+  {
+    "id": 6,
+    "doses": [
+      "33-66mg fumé / 2.5-5mg oral , léger",
+      "66-100mg fumé / 5-10mg oral , moyen",
+      "100-150mg et plus , fumé / 10-25mg et plus , oral , fort"
+    ]
+  },
+  {
+    "id": 7,
+    "doses": []
   }
 ]
