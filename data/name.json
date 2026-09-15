@@ -4,5 +4,17 @@
     "name": "lsd",
     "famille": 1,
     "description": "c'est un hallucinogene tres puissant se retrouve sous la forme de petit carton qu'on place sur la langue en attendant les effet"
+  },
+  {
+    "id": 2,
+    "name": "xanax",
+    "famille": 3,
+    "description": ""
+  },
+  {
+    "id": 3,
+    "name": "cocaine",
+    "famille": 4,
+    "description": "poudre blanche a sniffer"
   }
 ]

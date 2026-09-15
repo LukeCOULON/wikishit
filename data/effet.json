@@ -7,5 +7,24 @@
       "vision tres colorées"
     ],
     "duree": "16h"
+  },
+  {
+    "id": 2,
+    "effets": [
+      "calmant"
+    ],
+    "duree": ""
+  },
+  {
+    "id": 3,
+    "effets": [
+      "energie accrue",
+      "vigilance accrue",
+      "reduction de l'anxiété",
+      "euphorie",
+      "confiance en soi",
+      "pupilles dilatées"
+    ],
+    "duree": "45 minute / 1h"
   }
 ]

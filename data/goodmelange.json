@@ -4,5 +4,15 @@
     "melanges_ids": [
       4
     ]
+  },
+  {
+    "id": 2,
+    "melanges_ids": []
+  },
+  {
+    "id": 3,
+    "melanges_ids": [
+      1
+    ]
   }
 ]

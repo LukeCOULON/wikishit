@@ -6,5 +6,19 @@
       "75µ-150µ=moyen",
       "150µ-300µ et plus= fort"
     ]
+  },
+  {
+    "id": 2,
+    "doses": [
+      "0.25mg leger"
+    ]
+  },
+  {
+    "id": 3,
+    "doses": [
+      "10-30mg leger",
+      "30-60mg moyen",
+      "60-90 et plus , fort"
+    ]
   }
 ]
