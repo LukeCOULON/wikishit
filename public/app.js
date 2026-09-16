@@ -1,6 +1,19 @@
 let drugs = [];
 
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("docdata-theme", theme);
+  const toggle = $("themeToggle");
+  if (!toggle) return;
+  const dark = theme === "dark";
+  toggle.querySelector("span").textContent = dark ? "☀" : "☾";
+  toggle.querySelector("b").textContent = dark ? "Clair" : "Sombre";
+  toggle.setAttribute("aria-label", dark ? "Activer le thème clair" : "Activer le thème sombre");
+}
+
 const $ = (id) => document.getElementById(id);
+
+setTheme(localStorage.getItem("docdata-theme") || "light");
 
 async function loadData() {
   try {
@@ -11,7 +24,7 @@ async function loadData() {
     if (!response.ok) throw new Error(payload.detail || payload.error || "Erreur API");
     drugs = payload;
     console.log("[DEBUG] Produits reçus:", drugs.length);
-    populateFamilies();
+    $("totalCount").textContent = drugs.length;
     render(drugs, $("results"));
     render(drugs, $("filterResults"));
   } catch (err) {
@@ -37,8 +50,34 @@ async function loadFilters() {
   buildCheckList("effectFilter", filterOptions.effets.map(v => ({value:v, label:v})));
   buildCheckList("badEffectFilter", filterOptions.indesirables.map(v => ({value:v, label:v})));
   buildCheckList("priceFilter", filterOptions.prix.map(v => ({value:v, label:v})));
+  renderFamilies();
 
   document.querySelectorAll(".check-list input").forEach(el => el.addEventListener("change", doFilter));
+}
+
+function renderFamilies() {
+  const target = $("familyGrid");
+  if (!target) return;
+  target.innerHTML = filterOptions.familles.length
+    ? filterOptions.familles.map((family, index) => {
+        const count = drugs.filter(d => Number(d.famille) === Number(family.id)).length;
+        return `<button class="family-card" type="button" data-family="${escapeHtml(String(family.id))}">
+          <span class="family-number">0${index + 1}</span>
+          <strong>${escapeHtml(family.name)}</strong>
+          <small>${count} entrée${count > 1 ? "s" : ""}</small>
+          <b>↗</b>
+        </button>`;
+      }).join("")
+    : '<div class="empty">Aucune famille disponible.</div>';
+  target.querySelectorAll("[data-family]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("#familyFilter input").forEach(input => {
+        input.checked = input.value === button.dataset.family;
+      });
+      showView("filter");
+      doFilter();
+    });
+  });
 }
 
 function buildCheckList(id, options) {
@@ -61,7 +100,7 @@ function selectedValues(id) {
 
 function searchable(d) {
   return [
-    d.name, d.famille, d.description, d.prix, d.addiction,
+    d.name, d.famille, d.description, d.prix, d.addiction, d.tolerance,
     ...(d.effets || []), ...(d.indesirables || [])
   ].join(" ").toLowerCase();
 }
@@ -85,7 +124,8 @@ function render(list, target) {
         <div class="info"><strong>EFFETS INDÉSIRABLES</strong><div>${listText(d.indesirables)}</div></div>
         <div class="info"><strong>DURÉE</strong><div>${escapeHtml(d.duree || findDuration(d) || "À renseigner")}</div></div>
         <div class="info"><strong>PRIX</strong><div>${escapeHtml(String(d.prix ?? "À renseigner"))}</div></div>
-        <div class="info addiction-info"><strong>ADDICTION</strong><div><span class="addiction-score addiction-${Math.round(Number(d.addiction) || 0)}">${Math.round(Number(d.addiction) || 0)}/10</span><span class="addiction-label">${addictionLabel(d.addiction)}</span></div></div>
+        <div class="info addiction-info"><strong>ADDICTION</strong><div><span class="addiction-score addiction-${Math.round(Number(d.addiction) || 0)}">${Math.round(Number(d.addiction) || 0)}/10 · ${addictionLabel(d.addiction)}</span></div></div>
+        <div class="info tolerance-info"><strong>TOLÉRANCE</strong><div>${escapeHtml(String(d.tolerance ?? "À renseigner"))}</div></div>
       </div>
       <div class="grid">
         <div class="info"><strong>PRODUITS À NE PAS MÉLANGER</strong><div>${listText(d.mauvais_melanges)}</div></div>
@@ -154,6 +194,7 @@ function doFilter() {
 }
 
 function showView(view) {
+  $("homeView").classList.toggle("hidden", view !== "home");
   $("searchView").classList.toggle("hidden", view !== "search");
   $("filterView").classList.toggle("hidden", view !== "filter");
   document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
@@ -179,6 +220,13 @@ document.querySelectorAll(".nav-btn[data-view]").forEach(btn => {
 });
 $("searchBtn").addEventListener("click", doSearch);
 $("searchInput").addEventListener("keydown", e => { if (e.key === "Enter") doSearch(); });
+$("homeSearchBtn").addEventListener("click", () => {
+  showView("search");
+  $("searchInput").focus();
+});
+$("themeToggle").addEventListener("click", () => {
+  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+});
 
 
 $("resetBtn").addEventListener("click", () => {
@@ -187,10 +235,10 @@ $("resetBtn").addEventListener("click", () => {
   $("addictionMin").value = 0;
   $("addictionMax").value = 10;
   $("addictionRangeLabel").textContent = "0 à 10";
-  showView("search");
+  showView("home");
   render(drugs, $("results"));
 });
 
-Promise.all([loadData(), loadFilters()]).catch(() => {
+Promise.all([loadData(), loadFilters()]).then(() => showView("home")).catch(() => {
   $("filterResults").innerHTML = '<div class="empty error">Impossible de charger les listes de filtres.</div>';
 });

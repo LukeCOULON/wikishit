@@ -3,38 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Documentation</title>
+  <title>Wikishit</title>
+  <link rel="preload" href="/api/drogues" as="fetch" crossorigin>
+  <link rel="preload" href="/api/filtres" as="fetch" crossorigin>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">DOC<span>DATA</span></div>
+  <a class="brand" href="/" aria-label="Wikishit, accueil"><span class="brand-mark">WS</span><span>WIKI<span class="brand-accent">SHIT</span></span></a>
+  <div class="topbar-meta"><span class="live-dot"></span> BASE LOCALE · 2026</div>
   <nav>
-    <button class="nav-btn active" data-view="search">Rechercher</button>
+    <button class="nav-btn active" data-view="home">Accueil</button>
+    <button class="nav-btn" data-view="search">Explorer</button>
     <button class="nav-btn" data-view="filter">Filtrer</button>
-    <button class="nav-btn reset" id="resetBtn">Réinitialiser les filtres</button>
+    <button class="nav-btn reset" id="resetBtn">Effacer</button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le thème sombre"><span>☾</span><b>Thème</b></button>
   </nav>
 </header>
 
 <main>
+  <section id="homeView" class="view home-view">
+    <div class="home-intro">
+      <div>
+        <div class="hero-index">00 <span>/</span> ACCUEIL</div>
+        <p class="eyebrow">WIKISHIT · ARCHIVE LOCALE</p>
+        <h1>Une base claire.<br><em>Des repères utiles.</em></h1>
+        <p class="hero-copy">Explorez les entrées par famille ou lancez une recherche dans l'ensemble de la documentation.</p>
+        <div class="home-actions">
+          <button id="homeSearchBtn" class="primary-action">Commencer une recherche <b>↗</b></button>
+          <span><strong id="totalCount">0</strong> entrées documentées</span>
+        </div>
+      </div>
+      <div class="home-note"><span>INDEX / 00</span><p>Une lecture rapide, des données locales, une interface pensée pour retrouver l'essentiel.</p></div>
+    </div>
+    <div class="family-heading"><span>Parcourir par famille</span><i>sélection rapide</i></div>
+    <div id="familyGrid" class="family-grid"></div>
+  </section>
+
   <section id="searchView" class="view">
     <div class="hero">
+      <div class="hero-index">01 <span>/</span> INDEX</div>
       <p class="eyebrow">BASE DOCUMENTAIRE</p>
-      <h1>Rechercher une entrée</h1>
-      <p>Recherchez par nom, effet, famille, prix ou niveau d'addiction.</p>
+      <h1>Trouvez ce que<br><em>vous cherchez.</em></h1>
+      <p class="hero-copy">Une documentation locale, lisible et consultable par nom, effet, famille, prix ou niveau d'addiction.</p>
       <div class="search-row">
         <input id="searchInput" type="search" placeholder="Ex. nom, effet, famille..." autocomplete="off">
-        <button id="searchBtn">Rechercher</button>
+        <button id="searchBtn"><span>Rechercher</span><b>↗</b></button>
       </div>
     </div>
+    <div class="results-heading"><span>Résultats</span><i>lecture seule</i></div>
     <div id="results" class="results"></div>
   </section>
 
   <section id="filterView" class="view hidden">
     <div class="page-head">
+      <div class="hero-index">02 <span>/</span> SÉLECTION</div>
       <p class="eyebrow">LECTURE DE LA BASE</p>
-      <h1>Filtrer les entrées</h1>
-      <p>Chaque entrée correspondant aux critères sera affichée.</p>
+      <h1>Affinez<br><em>la sélection.</em></h1>
+      <p>Combinez plusieurs critères pour faire apparaître les entrées correspondantes.</p>
     </div>
     <div class="filters">
       <div><label>Famille</label><div id="familyFilter" class="check-list"></div></div>
@@ -54,7 +80,7 @@
   </section>
 </main>
 
-<footer>Interface documentaire — données locales JSON</footer>
+<footer><span>WIKI<span>SHIT</span></span><span>Interface documentaire · données locales JSON</span><span>v1.0</span></footer>
 <script src="/app.js"></script>
 </body>
 </html>

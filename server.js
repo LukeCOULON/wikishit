@@ -63,6 +63,7 @@ app.get("/api/drogues", (req, res) => {
     const prix = readJson("prix.json");
     const familles = readJson("familles.json");
     const addictions = readJson("addiction.json");
+    const tolerances = readJson("tolerance.json");
 
     const byId = (items) => Object.fromEntries(items.map(x => [String(x.id), x]));
 
@@ -72,6 +73,7 @@ app.get("/api/drogues", (req, res) => {
     const prixMap = byId(prix);
     const familleMap = byId(familles);
     const addictionMap = byId(addictions);
+    const toleranceMap = byId(tolerances);
     const drugNameMap = Object.fromEntries(
       drogues.map(d => [String(d.id), d.name])
     );
@@ -102,7 +104,8 @@ app.get("/api/drogues", (req, res) => {
       prix: prixMap[String(d.id)]?.prix ?? null,
       addiction: Number.isFinite(Number(addictionMap[String(d.id)]?.addiction))
         ? Math.max(0, Math.min(10, Number(addictionMap[String(d.id)]?.addiction)))
-        : 0
+        : 0,
+      tolerance: toleranceMap[String(d.id)]?.tolerance ?? ""
     }));
 
     debug(`/api/drogues OK: ${result.length} produit(s) assemblé(s)`);

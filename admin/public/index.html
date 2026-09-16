@@ -3,26 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Administration — Documentation</title>
+<title>Wikishit — Administration</title>
 <link rel="stylesheet" href="/admin.css">
 </head>
 <body>
 <header>
   <div>
-    <span class="eyebrow">LOCAL ONLY</span>
-    <h1>Administration de la base</h1>
+    <a class="admin-brand" href="/">WIKI<span>SHIT</span> <small>/ STUDIO</small></a>
+    <span class="eyebrow">LOCAL ONLY · ÉDITION</span>
+    <h1>Construire la base.</h1>
     <p>Ajoutez et modifiez les entrées. Les données sont enregistrées directement dans les JSON du site.</p>
   </div>
-  <div class="status">127.0.0.1:3001</div>
+  <div class="header-tools"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le thème sombre"><span>☾</span><b>Thème</b></button><div class="status"><span></span>127.0.0.1:3001</div></div>
 </header>
 
 <main>
   <section class="toolbar">
-    <button id="newBtn">+ Nouvelle entrée</button>
+    <button id="newBtn">+ <span>Nouvelle entrée</span></button>
     <input id="searchAdmin" type="search" placeholder="Rechercher une entrée...">
-    <button id="refreshBtn" class="secondary">Actualiser</button>
+    <button id="refreshBtn" class="secondary">↻ <span>Actualiser</span></button>
   </section>
 
+  <div class="section-marker"><span>ENTRÉES INDEXÉES</span><i>MODIFIABLES EN LOCAL</i></div>
   <div id="message"></div>
   <section id="list" class="list"></section>
 
@@ -32,7 +34,7 @@
         <span class="eyebrow" id="modeLabel">NOUVELLE ENTRÉE</span>
         <h2 id="editorTitle">Ajouter une entrée</h2>
       </div>
-      <button id="closeBtn" class="secondary">Fermer</button>
+      <button id="closeBtn" class="secondary">× <span>Fermer</span></button>
     </div>
 
     <form id="drugForm">
@@ -56,6 +58,9 @@
         <label>Niveau d'addiction (0 à 10)
           <input id="addiction" type="range" min="0" max="10" step="1" value="0">
           <output id="addictionValue" for="addiction">0/10</output>
+        </label>
+        <label>Tolérance
+          <textarea id="tolerance" rows="2" placeholder="Texte libre sur la tolérance"></textarea>
         </label>
       </div>
 

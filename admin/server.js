@@ -21,6 +21,7 @@ const FILES = [
   "goodmelange.json",
   "prix.json",
   "addiction.json",
+  "tolerance.json",
   "familles.json"
 ];
 
@@ -150,6 +151,11 @@ app.post("/api/drugs", (req, res) => {
       addiction: Math.max(0, Math.min(10, Number.isFinite(Number(d.addiction)) ? Number(d.addiction) : 0))
     });
 
+    data["tolerance.json"].push({
+      id,
+      tolerance: String(d.tolerance || "").trim()
+    });
+
     // Atomic-ish batch write: all files are serialized before writes.
     for (const f of FILES) writeJson(f, data[f]);
 
@@ -219,6 +225,11 @@ app.put("/api/drugs/:id", (req, res) => {
     replace("addiction.json", {
       id,
       addiction: Math.max(0, Math.min(10, Number.isFinite(Number(d.addiction)) ? Number(d.addiction) : 0))
+    });
+
+    replace("tolerance.json", {
+      id,
+      tolerance: String(d.tolerance || "").trim()
     });
 
     for (const f of FILES) writeJson(f, data[f]);

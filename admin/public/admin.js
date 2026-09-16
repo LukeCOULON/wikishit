@@ -3,6 +3,19 @@ let editingId = null;
 
 const $ = id => document.getElementById(id);
 
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("docdata-theme", theme);
+  const toggle = $("themeToggle");
+  if (!toggle) return;
+  const dark = theme === "dark";
+  toggle.querySelector("span").textContent = dark ? "☀" : "☾";
+  toggle.querySelector("b").textContent = dark ? "Clair" : "Sombre";
+  toggle.setAttribute("aria-label", dark ? "Activer le thème clair" : "Activer le thème sombre");
+}
+
+setTheme(localStorage.getItem("docdata-theme") || "light");
+
 async function api(url, options={}) {
   const r = await fetch(url, {
     headers: {"Content-Type":"application/json", ...(options.headers||{})},
@@ -109,6 +122,7 @@ function openEditor(id=null) {
   const g=id?sourceById("goodmelange.json",id):null;
   const p=id?sourceById("prix.json",id):null;
   const a=id?sourceById("addiction.json",id):null;
+  const t=id?sourceById("tolerance.json",id):null;
 
   $("id").value=id||"";
   $("id").disabled=!!id;
@@ -118,6 +132,7 @@ function openEditor(id=null) {
   $("addiction").value=Number.isFinite(Number(a?.addiction))
     ? Math.max(0, Math.min(10, Number(a.addiction)))
     : 0;
+  $("tolerance").value=t?.tolerance ?? "";
   updateAddictionValue();
   $("duration").value=e?.duree||"";
   textLines("effects",e?.effets||[]);
@@ -142,6 +157,7 @@ async function save(e) {
     description:$("description").value,
     prix:$("price").value,
     addiction:Number($("addiction").value),
+    tolerance:$("tolerance").value,
     effets:getLines("effects"),
     indesirables:getLines("undesirables"),
     duree:$("duration").value,
@@ -206,5 +222,6 @@ $("searchAdmin").oninput=renderList;
 $("drugForm").onsubmit=save;
 $("deleteBtn").onclick=remove;
 $("addiction").oninput=updateAddictionValue;
+$("themeToggle").onclick=()=>setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
 document.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>addLine(b.dataset.add));
 load().catch(e=>show(e.message,"err"));
