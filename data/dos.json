@@ -54,5 +54,13 @@
       "100-300mg oral / 30-75mg inhalé - moyen",
       "300-450 et plus, oral / 75-150 et plus , inhalé - fort"
     ]
+  },
+  {
+    "id": 9,
+    "doses": [
+      "40-70mg - leger",
+      "70-140 - moyen",
+      "140-180mg et plus , fort"
+    ]
   }
 ]

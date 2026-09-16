@@ -76,5 +76,16 @@
       "sensation de légèreté"
     ],
     "duree": "1h"
+  },
+  {
+    "id": 9,
+    "effets": [
+      "sociabilité",
+      "emphatie",
+      "chaleur",
+      "facilité de parler / améliore l'éloquence",
+      "mydriase"
+    ],
+    "duree": "4h"
   }
 ]

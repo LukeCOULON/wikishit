@@ -60,5 +60,15 @@
       "gout des gouttes dans la gorge",
       "addction"
     ]
+  },
+  {
+    "id": 9,
+    "indesirables": [
+      "redescente",
+      "vertige",
+      "transpiration",
+      "nausées",
+      "perte d'appétit"
+    ]
   }
 ]

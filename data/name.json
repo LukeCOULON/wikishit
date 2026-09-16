@@ -46,5 +46,11 @@
     "name": "ketamine",
     "famille": 7,
     "description": "cristaux en poudre a sniffer , anesthésique dissociatif , médicament d'hôpital"
+  },
+  {
+    "id": 9,
+    "name": "MDMA (taz)",
+    "famille": 8,
+    "description": "sous la forme de pillule avec des logo dessus ou de poudre la MDMA / ecstasy / taz procure des effet puissant"
   }
 ]
