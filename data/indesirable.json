@@ -2,7 +2,7 @@
   {
     "id": 1,
     "indesirables": [
-      "vision du monde changées"
+      "vision du monde changées après coup"
     ]
   },
   {
@@ -52,6 +52,13 @@
       "augmentation pression artérielle",
       "parano",
       "levres/gencives pateuses/anesthésiées"
+    ]
+  },
+  {
+    "id": 8,
+    "indesirables": [
+      "gout des gouttes dans la gorge",
+      "addction"
     ]
   }
 ]

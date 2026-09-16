@@ -40,5 +40,11 @@
     "name": "3MMC",
     "famille": 6,
     "description": "\"cocaïne du pauvre\""
+  },
+  {
+    "id": 8,
+    "name": "ketamine",
+    "famille": 7,
+    "description": "cristaux en poudre a sniffer , anesthésique dissociatif , médicament d'hôpital"
   }
 ]

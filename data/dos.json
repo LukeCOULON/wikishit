@@ -46,5 +46,13 @@
   {
     "id": 7,
     "doses": []
+  },
+  {
+    "id": 8,
+    "doses": [
+      "50-100mg oral / 10-30mg inhalé - leger",
+      "100-300mg oral / 30-75mg inhalé - moyen",
+      "300-450 et plus, oral / 75-150 et plus , inhalé - fort"
+    ]
   }
 ]
