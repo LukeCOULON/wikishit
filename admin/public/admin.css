@@ -9,6 +9,8 @@ button,input,textarea,select{font:inherit}button{border:0;border-radius:10px;pad
 button.secondary{background:var(--panel2);border:1px solid var(--border);color:var(--text)}button.small{padding:8px 12px;font-size:13px}.danger{background:var(--danger)!important}
 input,textarea,select{width:100%;padding:12px 13px;background:var(--panel);border:1px solid var(--border);border-radius:10px;color:var(--text);outline:0}
 input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+input[type="range"]{padding:0;accent-color:var(--accent);cursor:pointer}
+output{color:var(--text);font-weight:800}
 .list{display:grid;gap:10px}.row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 18px;background:var(--panel);border:1px solid var(--border);border-radius:13px}.row strong{display:block}.meta{color:var(--muted);font-size:13px}
 .editor{margin-top:25px;background:rgba(18,26,47,.96);border:1px solid var(--border);border-radius:18px;padding:25px}.editor-head{display:flex;justify-content:space-between;gap:15px;align-items:start;margin-bottom:25px}
 .hidden{display:none}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}label{display:grid;gap:7px;color:var(--muted);font-size:13px;margin-bottom:18px}

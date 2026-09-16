@@ -108,12 +108,17 @@ function openEditor(id=null) {
   const b=id?sourceById("badmelange.json",id):null;
   const g=id?sourceById("goodmelange.json",id):null;
   const p=id?sourceById("prix.json",id):null;
+  const a=id?sourceById("addiction.json",id):null;
 
   $("id").value=id||"";
   $("id").disabled=!!id;
   $("name").value=n?.name||"";
   $("description").value=n?.description||"";
   $("price").value=p?.prix||"";
+  $("addiction").value=Number.isFinite(Number(a?.addiction))
+    ? Math.max(0, Math.min(10, Number(a.addiction)))
+    : 0;
+  updateAddictionValue();
   $("duration").value=e?.duree||"";
   textLines("effects",e?.effets||[]);
   textLines("undesirables",i?.indesirables||[]);
@@ -136,6 +141,7 @@ async function save(e) {
     famille:Number($("family").value),
     description:$("description").value,
     prix:$("price").value,
+    addiction:Number($("addiction").value),
     effets:getLines("effects"),
     indesirables:getLines("undesirables"),
     duree:$("duration").value,
@@ -166,6 +172,10 @@ async function remove() {
 
 function show(msg,type){$("message").innerHTML=`<div class="msg ${type}">${esc(msg)}</div>`;setTimeout(()=>{$("message").innerHTML=""},5000)}
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function updateAddictionValue(){
+  $("addictionValue").value=`${$("addiction").value}/10`;
+  $("addictionValue").textContent=`${$("addiction").value}/10`;
+}
 
 $("newBtn").onclick=()=>openEditor();
 $("newFamilyBtn").onclick=async ()=>{
@@ -195,5 +205,6 @@ $("refreshBtn").onclick=()=>load().catch(e=>show(e.message,"err"));
 $("searchAdmin").oninput=renderList;
 $("drugForm").onsubmit=save;
 $("deleteBtn").onclick=remove;
+$("addiction").oninput=updateAddictionValue;
 document.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>addLine(b.dataset.add));
 load().catch(e=>show(e.message,"err"));
