@@ -6,6 +6,11 @@ Double-cliquer sur `start.bat`.
 Le script installe automatiquement la dépendance Express si nécessaire puis lance :
 `http://localhost:3000`
 
+
+
+
+
+!
 ## Données
 Les données sont dans le dossier `data/`. Elles peuvent être modifiées sans toucher au serveur.
 
